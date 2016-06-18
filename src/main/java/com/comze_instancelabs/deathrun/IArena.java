@@ -5,11 +5,11 @@ import java.util.Arrays;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.Material;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitTask;
-import org.bukkit.util.Vector;
 
 import com.comze_instancelabs.minigamesapi.Arena;
 import com.comze_instancelabs.minigamesapi.ArenaType;
@@ -45,6 +45,20 @@ public class IArena extends Arena {
 		}, 20L);
 	}
 
+	public void remove(final Location loc) {
+		Bukkit.getScheduler().runTaskLater(m, new Runnable() {
+			public void run() {
+					
+					for (Entity t_ : loc.getChunk().getEntities()) {
+						if (t_.getType() == EntityType.FALLING_BLOCK) {
+								t_.remove();
+						}
+				}
+			}
+			}, 38L);
+		}
+	
+	
 	@Override
 	public void started() {
 		final IArena a = this;
@@ -70,16 +84,28 @@ public class IArena extends Arena {
 						Bukkit.getScheduler().runTaskLater(m, new Runnable() {
 							public void run() {
 								for (Location l_ : locs) {
-									l_.getBlock().setType(Material.AIR);
+									l_.getBlock().getWorld().spawnFallingBlock(l_.add(0,0.5,0), l_.getBlock().getType(), l_.getBlock().getData());
+									l_.getBlock().breakNaturally();
+									l_.getBlock().getDrops().clear();
+									
+									remove(l_);
+									
+									for (Entity t_ : l_.getChunk().getEntities()) {
+										if (t_.getType() == EntityType.DROPPED_ITEM) {
+												t_.remove();
+												
+										}
+								}
 								}
 							}
+						
 						}, m.ticks);
 					}
 				}
 			}
 		}, 20L, 3L);
-
 	}
+	
 
 	@Override
 	public void stop() {

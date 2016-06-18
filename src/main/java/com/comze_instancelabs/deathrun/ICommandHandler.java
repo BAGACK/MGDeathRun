@@ -1,18 +1,12 @@
 package com.comze_instancelabs.deathrun;
 
-import java.util.ArrayList;
-
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.comze_instancelabs.minigamesapi.MinigamesAPI;
 import com.comze_instancelabs.minigamesapi.PluginInstance;
 import com.comze_instancelabs.minigamesapi.commands.CommandHandler;
-import com.comze_instancelabs.minigamesapi.util.Util;
 
 public class ICommandHandler extends CommandHandler {
 

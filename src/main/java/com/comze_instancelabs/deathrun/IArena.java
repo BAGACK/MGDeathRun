@@ -116,7 +116,7 @@ public class IArena extends Arena {
 			Bukkit.getScheduler().runTaskLater(m, new Runnable() {
 				public void run() {
 					if (m.isEnabled()) {
-						a.stop();
+						a.stopArena();
 					}
 				}
 			}, 20L);

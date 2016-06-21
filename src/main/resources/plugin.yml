@@ -1,6 +1,6 @@
 name: MGDeathRun
 main: com.comze_instancelabs.deathrun.Main
-version: 1.1.0
+version: ${version}
 author: [InstanceLabs, TheMrQuake, mepeisen]
 softdepend: [Vault, MinigamesLib]
 depend: [MinigamesLib]

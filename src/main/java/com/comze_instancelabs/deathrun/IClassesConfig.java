@@ -1,5 +1,6 @@
 package com.comze_instancelabs.deathrun;
 
+import com.comze_instancelabs.minigamesapi.MinigamesAPI;
 import com.comze_instancelabs.minigamesapi.config.ClassesConfig;
 
 public class IClassesConfig extends ClassesConfig {
@@ -15,7 +16,7 @@ public class IClassesConfig extends ClassesConfig {
 		this.getConfig().addDefault("config.kits.default.requires_money", false);
 		this.getConfig().addDefault("config.kits.default.requires_permission", false);
 		this.getConfig().addDefault("config.kits.default.money_amount", 100);
-		this.getConfig().addDefault("config.kits.default.permission_node", "minigames.kits.default");
+		this.getConfig().addDefault("config.kits.default.permission_node", MinigamesAPI.getAPI().getPermissionKitPrefix() + ".default");
 
 		// jump
 		this.getConfig().addDefault("config.kits.jump.name", "jump");
@@ -24,7 +25,7 @@ public class IClassesConfig extends ClassesConfig {
 		this.getConfig().addDefault("config.kits.jump.requires_money", false);
 		this.getConfig().addDefault("config.kits.jump.requires_permission", false);
 		this.getConfig().addDefault("config.kits.jump.money_amount", 100);
-		this.getConfig().addDefault("config.kits.jump.permission_node", "minigames.kits.jump");
+		this.getConfig().addDefault("config.kits.jump.permission_node", MinigamesAPI.getAPI().getPermissionKitPrefix() + ".jump");
 
 		this.getConfig().options().copyDefaults(true);
 		this.saveConfig();

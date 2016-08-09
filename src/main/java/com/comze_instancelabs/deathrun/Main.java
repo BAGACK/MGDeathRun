@@ -83,7 +83,7 @@ public class Main extends JavaPlugin implements Listener {
 	}
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		ic.handleArgs(this, "mgdeathrun", "/" + cmd.getName(), sender, args);
+		ic.handleArgs(this, MinigamesAPI.getAPI().getPermissionGamePrefix("deathrun"), "/" + cmd.getName(), sender, args);
 		return true;
 	}
 

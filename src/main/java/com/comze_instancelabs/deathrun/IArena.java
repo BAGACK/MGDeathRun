@@ -50,12 +50,13 @@ public class IArena extends Arena {
 			public void run() {
 					
 					for (Entity t_ : loc.getChunk().getEntities()) {
+						if (t_.getLocation().getBlockX() == loc.getBlockX() && t_.getLocation().getBlockZ() == loc.getBlockZ())
 						if (t_.getType() == EntityType.FALLING_BLOCK) {
 								t_.remove();
 						}
 				}
 			}
-			}, 38L);
+			}, 15L);
 		}
 	
 	

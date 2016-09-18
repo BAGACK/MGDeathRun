@@ -45,19 +45,26 @@ public class Main extends JavaPlugin implements Listener {
 		pli = pinstance;
 		ic = new ICommandHandler();
 
-		this.getConfig().addDefault("config.die_below_bedrock_level", false);
+		this.getConfig().addDefault("config.die_below_bedrock_level", 4);
 		this.getConfig().addDefault("config.level_of_blocks_to_remove", 1);
 		this.getConfig().addDefault("config.ticks_to_wait_before_breaking_blocks", 15);
 
 		this.getConfig().options().copyDefaults(true);
 		this.saveConfig();
 
-		boolean die_below_zero = this.getConfig().getBoolean("config.die_below_bedrock_level");
 		block_lv_to_remove = this.getConfig().getInt("config.level_of_blocks_to_remove");
 		ticks = this.getConfig().getInt("config.ticks_to_wait_before_breaking_blocks");
 
-		if (die_below_zero) {
-			pli.getArenaListener().loseY = 100;
+		if (this.getConfig().isBoolean("config.die_below_bedrock_level"))
+		{
+			boolean die_below_zero = this.getConfig().getBoolean("config.die_below_bedrock_level");
+			if (die_below_zero) {
+				pli.getArenaListener().loseY = 100;
+			}
+		}
+		else
+		{
+			pli.getArenaListener().loseY = this.getConfig().getInt("config.die_below_bedrock_level");
 		}
 	}
 

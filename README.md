@@ -1,4 +1,4 @@
-MGDeathRun [![Build Status](http://www.minigameslib.de/build.php?app=DeathRun&major=1)](http://www.minigameslib.de/buildref.php?app=DeathRun&major=1)
+MGDeathRun [![Build Status](http://www.minigameslib.de/build.png?app=DeathRun&major=1)](http://www.minigameslib.de/buildref.php?app=DeathRun&major=1)
 ==========
 
 Customizable TnTRun-like minigame
